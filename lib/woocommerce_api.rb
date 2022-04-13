@@ -97,7 +97,7 @@ module WooCommerce
 
       endpoint += "?" unless endpoint.include? "?"
       endpoint += "&" unless endpoint.end_with? "?"
-      endpoint + Addressable::URI.encode(flatten_hash(data).join("&"))
+      endpoint + CGI.escape(flatten_hash(data).join("&"))
     end
 
     # Internal: Get URL for requests
